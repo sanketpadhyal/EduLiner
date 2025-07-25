@@ -30,7 +30,7 @@ You may encounter a **"Dangerous Site"** warning from Chrome while accessing the
 **Why does this happen?**
 - Netlify-hosted apps with login pages or lower traffic are sometimes misflagged by Google Safe Browsing.
 - This does **not mean the site is malicious**. Our code is fully open-source and safe to explore or host yourself.
-- If you are feeling insecure or can't trust so try it in incognito tab (chrome) or any other web browser.
+- If you are feeling insecure or can't trust so try to visit it in incognito tab (chrome) or any other web browser.
 
 ✅ **You can view all code here or deploy it on your own Netlify/GitHub Pages safely.**
 
