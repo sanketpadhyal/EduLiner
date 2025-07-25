@@ -1,7 +1,7 @@
 # ✨ EduLiner - Photo Editor 
 
 Welcome to **EduLiner** — a beautifully designed, student-friendly photo editor that brings advanced features with a simple and animated interface. Perfect for students, creators, and anyone who wants quick, clean, and modern photo editing right from the browser!
-
+~ only optimized for pc no mobile optimization done in this web you can try login pages in mobile they are by default optimized!! thanks.
 ---
 # 🔐 Demo Login Info
 
@@ -16,6 +16,8 @@ Use the following credentials to test the UI:
 
 Email: admin@admin.com  
 Password: 123
+
+---
 
 ## 🚀 Features
 
