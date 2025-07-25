@@ -1,4 +1,4 @@
-# ✨ EduLiner - AI Powered Photo Editor for Students
+# ✨ EduLiner - Photo Editor 
 
 Welcome to **EduLiner** — a beautifully designed, student-friendly photo editor that brings advanced features with a simple and animated interface. Perfect for students, creators, and anyone who wants quick, clean, and modern photo editing right from the browser!
 
