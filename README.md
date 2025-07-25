@@ -3,6 +3,19 @@
 Welcome to **EduLiner** — a beautifully designed, student-friendly photo editor that brings advanced features with a simple and animated interface. Perfect for students, creators, and anyone who wants quick, clean, and modern photo editing right from the browser!
 
 ---
+# 🔐 Demo Login Info
+
+⚠️ Firebase or backend integration is not yet added.
+
+The login system is for demo purposes only.
+
+No new accounts can be created from the sign-up page.
+you can try login pages for demo purpose!
+
+Use the following credentials to test the UI:
+
+Email: admin@admin.com  
+Password: 123
 
 ## 🚀 Features
 
