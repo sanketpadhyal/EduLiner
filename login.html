@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="icon" type="image/png" href="assets/login.png"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url("assets/bg.png") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 20px;
+    }
+
+    .container {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      transition: filter 0.8s ease, opacity 0.8s ease;
+      opacity: 0;
+      filter: blur(8px);
+    }
+
+    .form-section {
+      flex: 1;
+      padding: 40px 30px;
+      position: relative;
+    }
+
+    .form-section h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .form-section p {
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .form-section label {
+      display: block;
+      margin-bottom: 6px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-section input:focus,
+    .form-section input:not(:placeholder-shown) {
+      border: 2px solid #3f8cff;
+      box-shadow: 0 0 10px rgba(63, 140, 255, 0.5);
+      transform: scale(1.03);
+    }
+
+    .form-section .forgot {
+      display: inline-block;
+      margin-bottom: 20px;
+      font-size: 13px;
+      color: #6c63ff;
+      text-decoration: none;
+    }
+
+    .form-section button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6c63ff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+    }
+
+    .form-section button:hover {
+      background-color: #5548d1;
+    }
+
+    .form-section .signup {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 14px;
+    }
+
+    .form-section .signup a {
+      color: #6c63ff;
+      text-decoration: none;
+    }
+
+    .image-section {
+      flex: 1;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .separator {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 1px;
+      border-left: 2px dotted #bbb;
+      z-index: 2;
+    }
+
+    .separator .scissor {
+      position: absolute;
+      top: 50%;
+      left: -17px;
+      transform: translateY(-50%);
+      font-size: 18px;
+      background: #fff;
+      padding: 2px 5px;
+      border-radius: 50%;
+    }
+
+    .login-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.5);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #6c63ff;
+      border-top: 6px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .error-message {
+      color: #ff3b3b;
+      background-color: #ffe0e0;
+      padding: 10px;
+      margin-top: 15px;
+      text-align: center;
+      border-radius: 8px;
+      font-size: 14px;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        border-radius: 16px;
+      }
+
+      .separator {
+        display: none;
+      }
+
+      .image-section {
+        order: -1;
+        padding: 10px;
+      }
+
+      .image-section img {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+      }
+
+      .form-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-wrapper">
+  <div class="separator">
+    <div class="scissor">✂️</div>
+  </div>
+
+  <div class="container">
+    <div class="form-section">
+      <h2 class="login-heading">Log In</h2>
+      <p>Welcome back to <strong>EduLiner</strong>! Please enter your details below.</p>
+      <form onsubmit="event.preventDefault(); login();">
+        <label><strong><em>Email </em></strong></label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label><strong><em>Password </em></strong></label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+
+        <a href="forgot.html" class="forgot">Forgot password?</a>
+
+        <button type="submit">Log In</button>
+
+        <div id="errorMessage" class="error-message">Wrong Email or Password!</div>
+
+        <p class="signup">Don't have an account? <a href="signup.html">Sign up</a></p>
+      </form>
+    </div>
+    <div class="image-section">
+      <img src="assets/login_illustration.png" alt="Illustration">
+    </div>
+  </div>
+</div>
+
+<!-- Loader -->
+<div class="login-loader" id="loginLoader">
+  <div class="login-spinner"></div>
+</div>
+
+<script>
+  window.addEventListener("load", () => {
+    const container = document.querySelector('.container');
+    container.style.filter = "blur(0)";
+    container.style.opacity = "1";
+  });
+
+  function login() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorBox = document.getElementById("errorMessage");
+
+    if (email === "admin@admin.com" && password === "123") {
+      document.getElementById("loginLoader").style.display = "flex";
+      errorBox.style.display = "none";
+
+      setTimeout(() => {
+        window.location.href = "dashboard.html";
+      }, 1200);
+    } else {
+      errorBox.style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>

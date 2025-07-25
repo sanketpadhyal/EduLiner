@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/index.png"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EduLiner ✂️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000; 
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .main-content {
+      animation: riseUp 1s ease-out forwards;
+      opacity: 0;
+      transform: translateY(60px);
+      z-index: 2;
+      max-width: 100%;
+    }
+
+    @keyframes riseUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .brand-name {
+      font-size: 2.6rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      word-wrap: break-word;
+    }
+
+    .brand-name .Edu {
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00e5ff, 0 0 30px #00e5ff;
+    }
+
+    .brand-name .Liner {
+      color: #ff4d4d;
+    }
+
+    .subtext {
+      font-size: 1rem;
+      color: #ddd;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      max-width: 90%;
+      margin-inline: auto;
+    }
+
+    .get-started-btn {
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, #00e5ff, #0066ff);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 25px #00e5ff;
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+    }
+
+    .get-started-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 40px #00e5ff, 0 0 60px #00bfff;
+    }
+
+    .fullscreen-loader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    .fullscreen-loader.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #222;
+      border-top: 6px solid #00e5ff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    footer {
+      padding: 12px 20px;
+      background: #111;
+      color: #888;
+      text-align: center;
+      font-size: 0.95rem;
+      box-shadow: 0 -1px 4px rgba(255, 255, 255, 0.05);
+    }
+
+    footer a {
+      color: #00e5ff;
+      text-decoration: none;
+    }
+
+    /* Desktop Enhancements */
+    @media (min-width: 768px) {
+      .brand-name {
+        font-size: 4rem;
+      }
+
+      .subtext {
+        font-size: 1.2rem;
+        max-width: 600px;
+      }
+
+      .get-started-btn {
+        padding: 16px 48px;
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <div class="main-content">
+      <div class="brand-name">
+        <span class="Edu">Edu</span><span class="Liner">Liner</span>✂️
+      </div>
+      <div class="subtext">
+        📷 Edit, Enhance & Elevate Your Memories.<br>
+        ✨ Built for Creators, Loved by Everyone.<br>
+        🎨 Powerful Tools. Simple Interface. Lightning Fast.<br>
+        🔐 Safe. Smart. Stunning – That’s Edu Liner.<br>
+        🔒 This is a demo project. No personal data is stored or collected.<br>
+      </div>
+      <button class="get-started-btn" id="getStartedBtn">GET STARTED</button>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 EduLiner. Designed and developed with ❤️ by 
+      <a href="https://github.com/sanketpadhyal" target="_blank">@sanketpadhyal 🔒 This is a demo project. No personal data is stored or collected.</a>.
+    </p>
+  </footer>
+
+  <div class="fullscreen-loader" id="loader">
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    const btn = document.getElementById('getStartedBtn');
+    const loader = document.getElementById('loader');
+
+    btn.addEventListener('click', () => {
+      loader.classList.add('show');
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1200);
+    });
+  </script>
+
+</body>
+</html>

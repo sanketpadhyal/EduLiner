@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Email Verification - EduLiner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/success.png" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url("assets/bg.png") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+      display: flex;
+      overflow: hidden;
+      flex-direction: row;
+    }
+
+    .left {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .left h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .left p {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .left p span {
+      font-weight: bold;
+    }
+
+    .left a {
+      margin-top: 30px;
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #6c63ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .left a:hover {
+      background-color: #574fd6;
+    }
+
+    .right {
+      flex: 1;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .scissor-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 25px;
+    }
+
+    .scissor-line::before,
+    .scissor-line::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      border-top: 2px dashed #aaa;
+    }
+
+    .scissor-line::before {
+      margin-right: 10px;
+    }
+
+    .scissor-line::after {
+      margin-left: 10px;
+    }
+
+    .scissor-icon {
+      font-size: 20px;
+      transform: rotate(90deg);
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left {
+        padding: 30px 20px;
+        text-align: center;
+      }
+
+      .right {
+        height: 200px;
+      }
+
+      .right img {
+        width: 80%;
+        height: auto;
+      }
+
+      .left h2 {
+        font-size: 22px;
+      }
+
+      .left p {
+        font-size: 14px;
+      }
+
+      .left a {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <h2>Verification Email Sent ✅</h2>
+      <p>We've sent a verification link to your email address.</p>
+      <p><span>If you don't see the email, check your spam folder.</span></p>
+      <p>If still not received, try again using the correct registered email.</p>
+
+      <div class="scissor-line">
+        <span class="scissor-icon">✂️</span>
+      </div>
+
+      <a href="login.html">← Back to Login</a>
+    </div>
+
+    <div class="right">
+      <img src="assets/verification_illustration.png" alt="Illustration" />
+    </div>
+  </div>
+</body>
+</html>

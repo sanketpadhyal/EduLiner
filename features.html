@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <title>Features - EduLiner</title>
+  <link href="style.css" rel="stylesheet" />
+  <style>
+    /* Navigation Button Colors */
+    .nav-home {
+      background: linear-gradient(135deg, #b2ebf2, #80cbc4); 
+    }
+
+    .nav-features {
+      background: linear-gradient(135deg, #ce93d8, #f48fb1); 
+    }
+
+    .nav-settings {
+      background: linear-gradient(135deg, #9fa8da, #4dd0e1); 
+    }
+
+    .nav-btn {
+      text-decoration: none;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('assets/bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #222;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .glass-box {
+      max-width: 900px;
+      width: 100%;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+      animation: fadeIn 0.8s ease-in;
+    }
+
+    .glass-box h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #000000;
+      margin-bottom: 30px;
+    }
+
+    .feature-item {
+      font-size: 18px;
+      line-height: 1.8;
+      margin: 15px 0;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .feature-item span {
+      font-size: 22px;
+      margin-right: 12px;
+      color: #4400ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #999;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loader -->
+  <div id="page-loader" class="slide-loader"></div>
+
+  <!-- Page Container -->
+  <div class="page-container" id="blur-target">
+
+    <!-- HEADER -->
+    <header>
+      <div class="top-bar glass">
+        <h1 class="brand glass-brand">
+          <span class="highlight-text">EduLiner</span> ✂️
+        </h1>
+        <div class="nav-btn-group">
+          <a href="dashboard.html" class="nav-btn nav-home">Home 🏠</a>
+          <a href="features.html" class="nav-btn nav-features">Features 💡</a>
+          <a href="about.html" class="nav-btn nav-gallery">About 🙋‍♂️</a>
+        </div>
+        <div class="header-right">
+          <button class="download-btn" style="display: none;">Download 📥</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN SECTION -->
+    <main> 
+      <div class="glass-box">
+        <h2>✨ Our Powerful Features ✨</h2>
+
+        <div class="feature-item">
+          <span>🚀</span>
+          <p><strong>Upload your own photos</strong> and instantly apply stunning filters like <strong>Glow</strong>, <strong>Vintage</strong>, <strong>Cool Tone</strong>, and <strong>Frames</strong>.</p>
+        </div>
+
+        <div class="feature-item">
+          <span>🛠️</span>
+          <p>Customize <strong>brightness</strong>, <strong>contrast</strong>, <strong>saturation</strong>, <strong>hue</strong>, <strong>sepia</strong>, <strong>grayscale</strong>, and more to get your perfect edit.</p>
+        </div>
+
+        <div class="feature-item">
+          <span>🔍</span>
+          <p><strong>Live Preview</strong> your edits before downloading to save time and get instant results.</p>
+        </div>
+
+        <div class="feature-item">
+          <span>🧠</span>
+          <p>Smart editing with <strong>AI-powered suggestions</strong> and upcoming <strong>auto-enhancement</strong> to make editing effortless.</p>
+        </div>
+
+        <div class="feature-item">
+          <span>📱</span>
+          <p><strong>Fully responsive</strong> design optimized for both PC and mobile with a <strong>modern, animated UI</strong> experience.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      © 2025 All Rights Reserved — <strong>EduLiner Inc.</strong>
+    </footer>
+
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const loader = document.getElementById("page-loader");
+      if (loader) loader.style.display = "none";
+    }, 1000);
+  </script>
+</body>
+</html>

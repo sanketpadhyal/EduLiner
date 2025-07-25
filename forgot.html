@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="assets/forgot.png"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: url("assets/bg.png") no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: row;
+      opacity: 0;
+      transition: filter 0.8s ease, opacity 0.8s ease;
+      backdrop-filter: blur(6px);
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .form-section {
+      flex: 1;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-section h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .form-section p {
+      color: #888;
+      margin-bottom: 30px;
+    }
+
+    .form-section label {
+      display: block;
+      margin-bottom: 6px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .form-section button {
+      width: 100%;
+      padding: 12px;
+      background-color: #6c63ff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(108, 99, 255, 0.4);
+    }
+
+    .form-section button:hover {
+      background-color: #5548d1;
+    }
+
+    .image-section {
+      flex: 1;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border-right: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .separator {
+      position: absolute;
+      left: 45%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+      border-left: 2px dotted #bbb;
+      z-index: 2;
+    }
+
+    .separator .scissor {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 19px;
+      background: #fff;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+
+    input {
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border: 2px solid #3f8cff;
+      box-shadow: 0 0 10px rgba(63, 140, 255, 0.5);
+      transform: scale(1.03);
+    }
+
+    input:not(:placeholder-shown) {
+      border: 2px solid #3f8cff;
+      box-shadow: 0 0 10px rgba(63, 140, 255, 0.4);
+      transform: scale(1.03);
+    }
+
+    input:placeholder-shown {
+      transform: scale(1);
+      border: 1px solid #ccc;
+      box-shadow: none;
+    }
+
+    .back-login {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .back-login a {
+      text-decoration: none;
+      color: #6c63ff;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .back-login a:hover {
+      color: #3f3dbd;
+    }
+
+    .login-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-spinner {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #6c63ff;
+      border-top: 6px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* Tablet Optimization */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .image-section {
+        border-right: none;
+        padding: 20px;
+        order: -1;
+      }
+
+      .image-section img {
+        max-width: 80%;
+        border-radius: 20px 20px 0 0;
+      }
+
+      .separator {
+        display: none;
+      }
+    }
+
+    /* Mobile Optimization */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        width: 100%;
+        margin: auto;
+      }
+
+      .form-section {
+        padding: 30px 20px;
+      }
+
+      .image-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px 12px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div style="position: relative;">
+    <div class="separator">
+      <div class="scissor">✂️</div>
+    </div>
+
+    <div class="container" id="container">
+      <div class="form-section">
+        <h2>Forgot Password</h2>
+        <p>Enter your email to receive a reset link.</p>
+        <form onsubmit="handleReset(event)">
+          <label><strong><em>Email </em></strong>📧</label>
+          <input type="email" id="resetEmail" placeholder="Enter your email" required>
+          <button type="submit">Send Reset Link</button>
+        </form>
+        <div class="back-login">
+          <a href="login.html">← Back to Login</a>
+        </div>
+      </div>
+
+      <div class="image-section">
+        <img src="assets/forgot_illustration.png" alt="Illustration">
+      </div>
+    </div>
+
+    <div class="login-loader" id="resetLoader">
+      <div class="login-spinner"></div>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("container").style.opacity = "1";
+    });
+
+    function handleReset(e) {
+      e.preventDefault();
+      const emailInput = document.getElementById("resetEmail");
+
+      if (!emailInput.value.trim()) {
+        alert("Please enter your email!");
+        return;
+      }
+
+      document.getElementById("resetLoader").style.display = "flex";
+
+      setTimeout(() => {
+        window.location.href = "reset.html";
+      }, 1300);
+    }
+  </script>
+</body>
+</html>
