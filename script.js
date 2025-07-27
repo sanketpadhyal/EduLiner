@@ -135,8 +135,8 @@ document.getElementById("download-btn").addEventListener("click", () => {
     ctx.drawImage(tempImg, frameThickness, frameThickness, width, height);
 
     const link = document.createElement("a");
-    link.download = "EduLiner.png";
-    link.href = canvas.toDataURL("image/png");
+    link.download = "EduLiner.png"; // depends on you what you wanna download jpg or png 
+    link.href = canvas.toDataURL("image/png"); // depends on you what you wanna download jpg or png 
     link.click();
   };
   tempImg.src = imageElement.src;
