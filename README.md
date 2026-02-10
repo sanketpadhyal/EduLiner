@@ -85,6 +85,11 @@ I built EduLiner without prior expert-level coding — just curiosity, creativit
 
 ---
 
+### 📅 Project Information
+Created: Jul 23, 2025
+
+---
+
 ## 📜 License  
 
 © 2025 EduLiner Inc. All rights reserved.  
